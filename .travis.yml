@@ -1,0 +1,8 @@
+language: cpp
+compiler:
+  - gcc
+before_install:
+  - sudo apt-get install -qq fglrx opencl-headers opencl-dev libgl1-mesa-dev
+script:
+  - make oclInfo
+  - ./oclInfo
