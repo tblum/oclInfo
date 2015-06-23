@@ -7,7 +7,8 @@ before_install:
 script:
   - make oclInfo
   - ls /etc/OpenCL/vendors
-  - cat /etc/OpenCL/vendors/amdocl64.icd
-  - sudo mkdir -p /etc/OpenCL/vendors
+  - cat /etc/OpenCL/vendors/nvidia.icd
   - sudo bash -c "echo libamdocl64.so > /etc/OpenCL/vendors/amdocl64.icd"
+  - rm /etc/OpenCL/vendors/nvidia.icd
+  - cat /etc/OpenCL/vendors/amdocl64.icd
   - ./oclInfo
