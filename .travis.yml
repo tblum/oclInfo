@@ -3,12 +3,11 @@ compiler:
   - gcc
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq fglrx opencl-headers opencl-dev libgl1-mesa-dev
+  - sudo apt-get install -qq fglrx=2:8.960-0ubuntu1 opencl-headers opencl-dev libgl1-mesa-dev pciutils 
 script:
   - make oclInfo
   - ls /etc/OpenCL/vendors
   - cat /etc/OpenCL/vendors/nvidia.icd
-  - sudo bash -c "echo libamdocl64.so > /etc/OpenCL/vendors/amdocl64.icd"
-  - sudo rm /etc/OpenCL/vendors/nvidia.icd
   - cat /etc/OpenCL/vendors/amdocl64.icd
+  - sudo lspci -v
   - ./oclInfo
